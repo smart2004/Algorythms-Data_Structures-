@@ -1,21 +1,26 @@
 # algorythms-data_structures- by smart200481 <Mikhail Sutormin>
 
-## builgings.py  
+## deque.py  
 ### Brief Task Description
 
-Tim is looking for a place to build a house. The street he wants to live on has length n, it consists of n identical consecutive sections. Each plot is either empty or house already built on the place.
-Sociable Tim does not want to live far away from other people on this street. Therefore, it is important for him to know for each plot the distance to the nearest empty plot. If the plot is empty, this value will be equal to zero - the distance to itself.
-Help Tim calculate the required distances. For this putrpose you have a street map. Houses in the city of Timo were numbered in the order in which they were built, so their numbers on the map are not ordered in any way. Empty areas are marked with zeros.
+Gosha implemented the Dec data structure, the maximum size of which is determined by a given number. Methods push_back(x), push_front(x), pop_back(), pop_front() worked correctly. But, if there were many elements in the deck, the program worked for a very long time. The fact is that not all operations were performed in O(1). Help Gosh! Write an efficient implementation.
+
+###### Attention: when implementing, use a ring buffer.
 
 ### Input Format
   
-The first line contains value, the length of the street —– n (1 ≤ n ≤ 106). 
-The next line contains n non-negative integers — the numbers of houses and designations of empty plots on the map (zeroes). 
-It is guaranteed that there is at least one zero in the sequence. House numbers (positive numbers) are unique and do not exceed 109.
+The first line contains the number of commands n — an integer not exceeding 100000. The second line contains the number m — the maximum deque size. It does not exceed 50000. The next n lines contain one of the commands:
+```
+push_back(value) - add an element to the end of the deque. If the deque already contains the maximum number of elements, print "error".
+push_front(value) - add an element to the front of the deque. If the deque already contains the maximum number of elements, print "error".
+pop_front() - Display the first element of the deque and remove it. If deque was empty, print "error".
+pop_back() - print the last element of the deque and remove it. If deque was empty, print "error".
+```
+Value is an integer, modulo not exceeding 1000.
 
 ### Output Format
   
-For each segment, print the distance to the nearest zero. Output the numbers on one line, separating them with spaces.
+Print the result of each command on a separate line. No output is required for successful push_back(x) and push_front(x) requests.
 
 
 ### How to launch the project:
@@ -23,35 +28,44 @@ For each segment, print the distance to the nearest zero. Output the numbers on 
 ##### Clone repository:
 
 ```
-git clone git@github.com:smart2004/Algorythms-Basics-.git
+git clone git@github.com:smart2004/Algorythms-Data_Structures-.git
 ```
 
 ##### Switch to the folder:
 
 ```
-cd algorythms-basics-
+cd algorythms-data_structures-
 ```
 
 ##### Launch python task:
 
 ```
-python buildings.py
+python deque.py
 ```
 ###### NOTE: better use IDE and start task @ the place
   
 ##### Example for input:
 ```
-6
-0 4 1 10 0 8
+7
+10
+push_front -855
+push_front 0
+pop_back
+pop_back
+push_back 844
+pop_back
+push_back 823
 ```
   
 ##### Example for output:
 ```
-0 1 2 1 0 1
+-855
+0
+844
 ```
   
 
-## hands_agility.py
+## polski_note.py
 ### Brief Task Description
 
 The "Speed Typing Trainer" is a sixteen-key 4x4 square keyboard. Each key can display either a dot or a number from 1 to 9.
