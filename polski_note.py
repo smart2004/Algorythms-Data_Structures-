@@ -1,4 +1,3 @@
-# 87245122
 """This code is release of Polski notation calculator."""
 
 
