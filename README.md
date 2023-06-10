@@ -9,7 +9,9 @@ Gosha implemented the Dec data structure, the maximum size of which is determine
 
 ### Input Format
   
-The first line contains the number of commands n — an integer not exceeding 100000. The second line contains the number m — the maximum deque size. It does not exceed 50000. The next n lines contain one of the commands:
+The first line contains the number of commands n — an integer not exceeding 100000. 
+The second line contains the number m — the maximum deque size. It does not exceed 50000. 
+The next n lines contain one of the commands:
 ```
 push_back(value) - add an element to the end of the deque. If the deque already contains the maximum number of elements, print "error".
 push_front(value) - add an element to the front of the deque. If the deque already contains the maximum number of elements, print "error".
