@@ -1,4 +1,3 @@
-# 87250890
 """This code is a deque release."""
 
 
