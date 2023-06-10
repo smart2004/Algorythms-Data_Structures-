@@ -73,66 +73,85 @@ error
 ## polski_note.py
 ### Brief Task Description
 
-The "Speed Typing Trainer" is a sixteen-key 4x4 square keyboard. Each key can display either a dot or a number from 1 to 9.
-The exercise on the simulator is divided into rounds:
-- each round consists of several games;
-- in different rounds, the number of games may be different;
-- the number of each game in the round is indicated by the counter t.
-  
-For each round, certain values are set on the keys, which remain unchanged during all the games of the round.
-The value of the game counter t cannot exceed the value of the largest number displayed on the keyboard in the current round.
-Two players take part in the exercise on the simulator, they play together on the same keyboard. For each round, the maximum number of keys that one player can press is set (it is denoted by the variable k and does not change during the round).
-In each individual game, the participants must press the keys together, on which the number corresponding to the number of the game t is displayed. For example, in the second game of a round, players must press all those keys that show a deuce.
-There may be games in the round where you do not need to press buttons: for example, in the above version of the round in games from t = 4 to t = 8, you do not need to press buttons: there are no numbers from 4 to 8 on the keyboard.
-If in the next game the participants have the opportunity to press all the necessary keys, they press them and get 1 point.
-Let's assume that for the round a set of buttons is given, as in the picture, and k = 3 (each of the participants can press no more than three buttons). Then in the second game (t = 2), where twos must be pressed, two players can only press 6 keys together (k * 2 = 6). But there are seven twos on the keyboard; participants will not be able to click all of them and will not receive a point.
-  
-Write a program that will receive data for a specific round:
-- k value,
-- values for buttons,
-and calculate the number of points that will be earned in this round.
+The task is related to reverse Polish notation. It is used to parse arithmetic expressions. It is also sometimes called postfix notation.
+
+In postfix notation, the operands are placed before the operator signs.
+
+Example 1:
+```
+3 4 +
+means 3 + 4 and equals 7
+```
+Example 2:
+```
+12 5 /
+Since the division is integer, the result is 2.
+```
+Example 3:
+```
+10 2 4 * -
+means 10 - 2 * 4 and equals 2
+```
+Let's take a closer look at the last example:
+
+The * sign is immediately after the numbers 2 and 4, which means that you need to apply the operation that this sign denotes to them, that is, multiply these two numbers. As a result, we get 8.
+
+After that, the expression will take the form:
+```
+10 8 -
+```
+The minus operation must be applied to the two numbers preceding it, that is, 10 and 8. As a result, we get 2.
+
+Let's consider the algorithm in more detail. To implement it, we will use the stack.
+
+To calculate the value of an expression written in reverse Polish notation, you need to read the expression from left to right and follow these steps:
+
+Input character processing:
+If an operand is given as input, it is pushed onto the top of the stack.
+If an operation sign is given to the input, then this operation is performed on the required number of values taken from the stack in the order of addition. The result of the performed operation is placed on the top of the stack.
+If the input character set is not fully processed, go to step 1.
+After the input character set has been completely processed, the result of the expression evaluation is at the top of the stack. If there are several numbers left on the stack, then only the top element should be displayed.
+A note about negative numbers and division: in this problem, division refers to mathematical integer division. This means that it always rounds down. Namely: if a / b = c, then b ⋅ c is the largest number that does not exceed a and is simultaneously divisible by b without remainder.
+
+In the current problem, it is guaranteed that there is no division by a negative number.
   
 ### Input Format
   
-The first line contains an integer k (1 ≤ k ≤ 5).
-
-The next four lines set the values for the buttons—4 characters per line. Each character is either a dot or a number from 1 to 9. The characters on the same line are consecutive and are not separated by spaces.
+The single line contains an expression written in reverse Polish notation. Numbers and arithmetic operations are written with a space.
+Operations can be given as input: +, -, *, / and numbers, modulo not exceeding 10000.
+It is guaranteed that the value of intermediate expressions in the test data modulo is not more than 50000.
 
 ### Output Format
   
-Print a single integer, the number of points the players will score in the round.
+Output a single number — the value of the expression
 
 ### How to launch the project:
   
 ##### Clone repository:
 
 ```
-git clone git@github.com:smart2004/Algorythms-Basics-.git
+git clone git@github.com:smart2004/Algorythms-Data_Structures-.git
 ```
 
 ##### Switch to the folder:
 
 ```
-cd algorythms-basics-
+cd algorythms-data_structures-
 ```
 
 ##### Launch python task:
 
 ```
-python hands_agility.py
+python polski_note.py
 ```
 ###### NOTE: better use IDE and start task @ the place
   
 ##### Example for input:
 ```
-3
-1231
-2..2
-2..2
-2..2
+4 8 + 6 * 7 / 9 -
 ```
   
 ##### Example for output:
 ```
-2
+1
 ```  
