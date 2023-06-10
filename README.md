@@ -46,22 +46,25 @@ python deque.py
   
 ##### Example for input:
 ```
-7
-10
-push_front -855
-push_front 0
+8
+11
+push_front -860
+push_front 29
 pop_back
 pop_back
-push_back 844
+push_back 850
 pop_back
-push_back 823
+pop_back
+pop_front
 ```
   
 ##### Example for output:
 ```
--855
-0
-844
+-860
+29
+850
+error
+error
 ```
   
 
